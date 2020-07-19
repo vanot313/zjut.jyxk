@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>雏鹰杯</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <script src="assets/js/jquery.min.js"></script>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/gaia.css" rel="stylesheet"/>
+    <link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="section" id="p1">
+    <div class="container">
+        <div class="row">
+            <div class="title-area">
+                <h2>报名</h2>
+                <div class="separator separator-danger">✻</div>
+            </div>
+
+
+            <form role="form" style="margin: 0 10%" >
+
+                <!--label for="theme">选择报名人数</label>
+                <select class="form-control" id="theme" >
+                    <option value="1">个人报名 | 1人</option>
+                    <option value="2">团体报名 | 4人</option>
+                </select-->
+
+                <div id="form1">
+                    <div class="form-group">
+                        <label for="studentSingle">姓名</label>
+                        <input type="text" class="form-control" id="studentSingle" placeholder="真实姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="numberSingle">学号</label>
+                        <input type="text" class="form-control" id="numberSingle" placeholder="注意检查">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephoneSingle">联系方式</label>
+                        <input type="text" class="form-control" id="telephoneSingle" placeholder="长号/短号">
+                    </div>
+					<div class="form-group">
+                        <label for="QQSingle">QQ</label>
+                        <input type="text" class="form-control" id="QQSingle" placeholder="你的QQ">
+                    </div>
+
+                </div>
+                <!--div id="form2">
+                    <div class="form-group">
+                        <label for="studentGroup1">队长姓名</label>
+                        <input type="text" class="form-control" id="studentGroup1" placeholder="真实姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="numberGroup">学号</label>
+                        <input type="text" class="form-control" id="numberGroup" placeholder="填完请确认">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephoneGroup">队长电话</label>
+                        <input type="text" class="form-control" id="telephoneGroup" placeholder="长号/短号">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentGroup2">队员1 姓名</label>
+                        <input type="text" class="form-control" id="studentGroup2" placeholder="真实姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentGroup3">队员2 姓名</label>
+                        <input type="text" class="form-control" id="studentGroup3" placeholder="真实姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentGroup4">队员3 姓名</label>
+                        <input type="text" class="form-control" id="studentGroup4" placeholder="真实姓名">
+                    </div>
+
+                </div-->
+                <p class="text-center" style="color: #de6168">若提交按钮无反应<br/>请在手机自带浏览器打开提交</p>
+                <div class="btn btn-block" onclick="bind()">提交</div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    function bind() {
+        //var method = $('#theme').val();
+		//if(method == 1){
+			var numberSingle = $('#numberSingle').val();
+            var studentSingle = $('#studentSingle').val();
+            var telephoneSingle = $('#telephoneSingle').val();
+			var QQSingle = $('#QQSingle').val();
+			
+			var endline = new Date(2019,11-1,14,10,00,00);
+			var nowTime = new Date();
+			
+			if(nowTime > endline){
+				alert("报名失败，超过报名期限");
+			}else if (numberSingle == '' || studentSingle == '' || telephoneSingle == '' || QQSingle == '') {
+                alert("请完善个人信息后提交");
+            } else {
+                var dataSingle ={
+                    numberSingle,
+                    studentSingle,
+                    telephoneSingle,
+					QQSingle
+                };
+                $.get('19cybEnd.php',dataSingle, function (res, status) {
+					alert(res);
+                    if (status) {
+                        if (res == '1') {
+							location.reload();
+                            alert('报名成功');
+                        } else if (res == '0') {
+                            alert('报名失败,请重新提交信息');
+                        }
+                    } else {
+                        alert('报名失败,请检查网络');
+                    }
+                });
+            }
+/*        }else if(method == 2){
+
+            var numberGroup = $('#numberGroup').val();
+            var studentGroup1 = $('#studentGroup1').val();
+            var telephoneGroup= $('#telephoneGroup').val();
+            var studentGroup2 = $('#studentGroup2').val();
+            var studentGroup3 = $('#studentGroup3').val();
+            var studentGroup4 = $('#studentGroup4').val();
+
+            if (numberGroup == '' || studentGroup1 == '' || telephoneGroup == ''|| 
+                studentGroup2 == '' || studentGroup3 == '' || studentGroup4 == '') {
+                alert("请完善个人信息后提交")
+            } else {
+                var dataGroup ={
+                    numberGroup,
+                    studentGroup1,
+                    telephoneGroup,
+                    studentGroup2,
+                    studentGroup3,
+                    studentGroup4,
+                };
+                $.get('17flyEnd.php',dataGroup, function (res, status) {
+                    if (status) {
+                        if (res == '1') {
+							location.reload();
+                            alert('报名成功');
+                        } else if (res == '2') {
+							alert('报名失败，超过报名期限');
+						} else if (res == '0') {
+                            alert('报名失败,请重新提交信息');
+                        }
+                    } else {
+                        alert('报名失败,请检查网络');
+                    }
+                });
+            }
+        }*/
+
+
+    }
+
+/*    $('#form2').hide();
+    $('#form1').show();
+
+    $('#theme').change(function () {
+        var method = $('#theme').val();
+//        alert(method);
+        if(method == 2) {
+            $('#form1').hide();
+            $('#form2').show();
+        }else if(method == 1){
+            $('#form2').hide();
+            $('#form1').show();
+        }
+    });*/
+
+</script>
+<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/js/modernizr.js"></script>
+<script type="text/javascript" src="assets/js/gaia.js"></script>
+
+</html>

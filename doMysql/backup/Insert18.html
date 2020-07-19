@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=2,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>添加名单</title>
+
+    <style>
+        .box1{
+            text-align: center;
+        }
+        .box2{
+            margin-left: 35%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="box1">
+    <h2>添加名单页面</h2>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><strong>※请在下面输入相关信息！</strong></p>
+    <form action="InsertE18.php" method="post">
+        <p>&nbsp;</p>
+
+        <p>添加人学号+姓名+班级:
+            <input type="text" name="findStr"></p>
+
+        <p>添加年级：
+            <select name="grade">
+				<option value="19">19级</option>
+                <option value="18">18级</option>
+                <option value="17">17级</option>
+                <option value="16">16级</option>
+            </select>
+        </p>
+
+        <input type="hidden" name="output" value="">
+
+        <blockquote>
+            <p><input type="submit" value="  提交  "></p>
+        </blockquote>
+    </form>
+</div>
+<div class="box2">
+    <p>
+        <strong>
+            <br>
+            使用步骤：<br>
+            1.首先在excel中按学号-姓名-班级排成三列<br>
+            2.整体复制粘贴至“记事本”中<br>
+            3.检查学号-姓名-班级任一是否为空，若为空写入任意好记的符号如'?'，以此确保每行有三个数据<br>
+            4.用CTRL+H的替换把间隔换成一个space键，通常间隔是一个大Tab和几个小space<br>
+            （虽然代码会处理间隔，但是为了防止出错，这样是最保险的）<br>
+            5.将记事本中的格式化文本复制粘贴至上述框内，选好“学年”后点击“提交”<br>
+            <br>
+            注意事项：<br>
+            1.学号若有转专业则去掉Z，并肉眼检查长度是否正确<br>
+            2.班级用统一化简写<br>
+            3.务必确保每行有三个数据<br>
+            4.此处年级设置后默认不修改；若要修改，请在后续页面找到选择按钮，并重选<br>
+        </strong>
+    </p>
+</div>
+</body>
+</html>

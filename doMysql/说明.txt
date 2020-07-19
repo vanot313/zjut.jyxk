@@ -1,0 +1,36 @@
+// html提供操作页面
+// php提供业务处理逻辑
+// 请尽可能读懂相关源代码
+
+
+/*
+ * 添加名单
+ */
+Insert.html
+InsertE.php
+
+/*
+ * 添加加分公示
+ */
+InsertJFGS.html
+InsertJFGSE.php
+
+/*
+ * 加创新分
+ */
+Tp.html
+Tps.php
+
+/*
+ * 添加加分项目
+ */
+InsertField.html
+InsertFieldE.php
+
+/*
+ * backup文件夹内为备份文件
+ */
+
+/*
+ * cssjs文件夹内为样式脚本文件
+ */

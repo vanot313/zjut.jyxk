@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=2,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>添加加分公示</title>
+
+    <style>
+        .box1{
+            text-align: center;
+        }
+        .box2{
+            margin-left: 35%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <h2>添加加分公示（此页请不要随意操作）</h2>
+    <p><button value="back" onclick="javascript:window.location.href='Tp.html'" > 返回统票页面 </button></p>
+    <p>&nbsp;</p>
+    <p><strong>※请在下面输入相关信息</strong>！ </p>
+    <form action="InsertJFGSE.php" method="get">
+        <p>&nbsp;</p>
+        <table style="margin:auto;">
+            <tr>
+                <td style="text-align: right;">加分项目类别：</td>
+                <td style="text-align: left;">
+                    <select name="type">
+                        <option value="1">比赛</option>
+                        <option value="2">讲座</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">加分项目字段名称：</td>
+                <td style="text-align: left;"><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">加分：</td>
+                <td style="text-align: left;">
+                    <select name="scoreT">
+                        <option value="rw">人文</option>
+                        <option value="kj">科技</option>
+                    </select>
+                    分
+                    <input type="text" name="score1" size="6">
+                    ——
+                    <input type="text" name="score2" size="6">
+                    (分)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">对象：</td>
+                <td style="text-align: left;">
+                    <input type="text" name="grade1" size="6">
+                    ——
+                    <input type="text" name="grade2" size="6">
+                    级
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">文件地址：</td>
+                <td style="text-align: left;"><input type="text" name="href"></td>
+            </tr>
+        </table>
+
+        <blockquote><p>
+            <input type="submit" value="  提交  "></p>
+        </blockquote>
+    </form>
+</div>
+<div class="box2">
+    <p>
+        <strong>
+            <br>
+            使用步骤：<br>
+            1.将需要加分的项目名称写入“加分项目字段名称”中<br>
+            2.选择加分类别（人文or科技），填写加分下限、加分上限（上限不填则以下限为固定值）<br>
+            3.填写加分年级下限、年级上限（上限不填则以下限为固定值）<br>
+            4.填写存储该获奖名单的地址（若不知道请不要提交表格）<br>
+            <br>
+            注意事项：<br>
+            1.按照加分项目的命名规范就OK
+        </strong>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>演讲赛 抽奖环节</title>
+    <link href="cssjs/divider.min.css" rel="stylesheet" type="text/css">
+    <link href="cssjs/header.min.css" rel="stylesheet" type="text/css">
+    <link href="cssjs/button.min.css" rel="stylesheet" type="text/css">
+    <script src="cssjs/jquery-3.2.1.min.js"></script>
+    <style>
+        .box1{
+            text-align: center;
+            margin-top: 5%;
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="box1">
+    <h2 class="ui horizontal divider header"> 抽奖环节 </h2>
+    <div class="ui hidden divider"></div>
+    <div class="image">
+        <img id="img" src="images/lottery/1.jpg">
+    </div>
+    <div class="ui hidden divider"></div>
+    <button id="button" class="massive ui red button" onclick="start()">开始抽奖</button>
+</div>
+
+</body>
+<script>
+
+    var interval;
+    var img = document.getElementById("img");
+    var button = document.getElementById("button");
+    function change() {
+        var randomNum = parseInt(Math.random() * 7 + 1);
+        var path = "images/lottery/"+randomNum+".jpg";
+        img.src = path;
+    }
+    function start() {
+        interval = window.setInterval("change()",25);
+        button.onclick = stop;
+        button.innerHTML = "停止抽奖";
+    }
+    function stop() {
+        window.clearInterval(interval);
+        button.onclick = start;
+        button.innerHTML = "开始抽奖";
+    }
+
+</script>
+</html>

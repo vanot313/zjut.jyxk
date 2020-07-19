@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=2,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+	
+    <title>统票</title>
+
+    <style>
+        .box1{
+            text-align: center;
+        }
+        .box2{
+            margin-left: 35%;
+        }
+    </style>		
+</head>
+
+<body>
+<div class="box1">
+    <h2>初始化统票</h2>
+    <p><button value="back" onclick="javascript:window.location.href='InsertField.html'" > 返回添加项目页面 </button>
+        &nbsp;<button value="back" onclick="javascript:window.location.href='InsertJFGS.html'" > 前往添加加分公示页面 </button></p><br>
+    <p><strong>※请在下面输入相关信息</strong>！ </p>
+    <form action="Tps.php" method="get">
+        <p>&nbsp;</p>
+        <table style="margin: auto;">
+            <tr>
+                <td style="text-align: right;">加分项目字段名称：</td>
+                <td style="text-align: left;"><input type="text" name="project"></td>
+            </tr>
+			<tr>
+                <td style="text-align: right;">统计项目创新分（浮点数）：</td>
+                <td style="text-align: left;"><input type="text" name="points"></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">检索方式：</td>
+                <td style="text-align: left;">
+                    <select name="method">
+                        <option value="byxuehao">学号</option>
+                        <option value="byname">姓名</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">加分方式：</td>
+                <td style="text-align: left;">
+                    <select name="scoreMethod">
+                        <option value="byAssign">覆盖</option>
+                        <option value="byAdd">累加</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <blockquote><p>
+            <input type="submit" value="  提交  "></p>
+        </blockquote>
+    </form>
+</div>
+<div class="box2">
+    <p>
+        <strong>
+            <br>
+            使用步骤：<br>
+            1.将加分项目的名字正确无误地输入或复制到“统计项目字段名称”中<br>
+            2.输入加分分数至统计项目创新分（浮点数）（常见分数0.05  0.1  0.18  0.3）<br>
+            3.检索方式指的是通过姓名或学号为依据进行搜索加分<br>
+            4.加分方式指的是通过将分数覆盖至原分数上（覆盖）或者将分数累加至原分数上（累加）<br>
+            5.点击提交后进入后台页面，然后将excel中处于同一列的姓名或学号复制到输入框中，再次提交即可加分<br>
+            <br>
+            注意事项：<br>
+            1.仅在某人名字不常见时使用姓名加分<br>
+            2.尽量使用学号加分，如果学号加分失败，请检查学号是否符合下列情况。<br>
+            3.学号若有转专业则去掉Z，并肉眼检查长度是否正确<br>
+            4.务必确保每个学号之间有空格作为间隔<br>
+            5.此处所有信息设置后默认不修改；若要修改，请返回当前页面，并重选<br>
+        </strong>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=2,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>添加加分项目</title>
+
+    <style>
+        .box1{
+            text-align: center;
+        }
+        .box2{
+            margin-left: 35%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <h2>添加加分项目</h2>
+    <p><button value="back" onclick="javascript:window.location.href='Tp.html'" > 前往统票页面 </button></p>
+    <p>&nbsp;</p>
+    <p><strong>※请在下面输入相关信息</strong>！ </p>
+    <form action="InsertFieldE.php" method="get">
+        <p>&nbsp;</p>
+        <table style="margin: auto;">
+            <tr>
+                <td style="text-align: right;">加分项目字段名称：</td>
+                <td style="text-align: left;"><input type="text" name="project"></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">添加年级：</td>
+                <td style="text-align: left;">
+					<input type="checkbox" name="19" value="19">19级
+                    <input type="checkbox" name="18" value="18">18级
+                    <input type="checkbox" name="17" value="17">17级
+                    <input type="checkbox" name="16" value="16">16级
+                    
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">加分项目分类：</td>
+                <td style="text-align: left;">
+                    <select name="db1">
+                        <option value="rw">人文</option>
+                        <option value="kj">科技</option>
+                    </select>
+                    <select name="db2">
+                        <option value="jz">讲座</option>
+                        <option value="bs">比赛</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <blockquote><p>
+            <input type="submit" value="  提交  "></p>
+        </blockquote>
+    </form>
+</div>
+<div class="box2">
+    <p>
+        <strong>
+            <br>
+            使用步骤：<br>
+            1.将需要加分的项目名称写入“加分项目字段名称”中<br>
+			2.选择加分年级（多选顶多影响一微微速度，少选会导致加不上分）<br>
+			3.选择正确的分类，人文或科技，讲座或比赛（重点！）<br>
+			<br>
+			注意事项：<br>
+			1.加分项目名称一定要精简准确，讲座还好，比赛一定要定好名称规范。<br>
+			2.“办公技能大赛”和“专业学术竞赛”一学年有两场比赛，一定要记得在前面加上“第几届”。<br>
+			3.“服务外包大赛”一学年校省国各举办一次，校级省级需要覆盖，国家级不需要<br>&nbsp&nbsp所以看情况在前面加上“第几届”或者“校级”或者“省级”相关内容。方便覆盖分数<br>
+			4.总而言之，一学年两次以上的比赛要在名字中加以区分，需要覆盖分数的比赛名字越“普通”越好<br>
+        </strong>
+    </p>
+</div>
+
+</body>
+</html>

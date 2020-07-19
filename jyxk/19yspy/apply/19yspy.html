@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>原声配音大赛</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/gaia.css" rel="stylesheet"/>
+    <link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="section" id="p1" style="background-color: #F5F5F5">
+    <div class="container">
+
+        <div class="title-area">
+            <h2>报名</h2>
+            <div class="separator separator-danger">✻</div>
+        </div>
+
+        <form role="form" style="margin: 0 10%" >
+            <div id="form">
+                <div class="form-group">
+                    <label for="teamName">队伍名称</label>
+                    <span class="glyphicon glyphicon-flag"></span>
+                    <input type="text" class="form-control" id="teamName" placeholder="没想好？就先空着吧">
+                </div>
+                <div class="form-group">
+                    <label for="teamLeader">队长姓名</label>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" class="form-control" id="teamLeader" placeholder="留下你的大名">
+                </div>
+                <div class="form-group">
+                    <label for="teamPhone">联系方式</label>
+                    <span class="glyphicon glyphicon-phone"></span>
+                    <input type="text" class="form-control" id="teamPhone" placeholder="你的Phone">
+                </div>
+                <div class="form-group">
+                    <label for="teamQQ">QQ</label>
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <input type="text" class="form-control" id="teamQQ" placeholder="你的企鹅号">
+                </div>
+                <div class="form-group">
+                    <label for="num">队伍人数</label>
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                    <select class="form-control" id="num" >
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+				<div class="form-group">
+                    <label for="teamer_2">队员1姓名</label>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" class="form-control" id="teamer_2" placeholder="第二个成员">
+                </div>
+				<div class="form-group">
+                    <label for="teamer_3">队员2姓名</label>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" class="form-control" id="teamer_3" placeholder="第三个成员">
+                </div>
+				<div class="form-group">
+                    <label for="teamer_4">队员3姓名</label>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" class="form-control" id="teamer_4" placeholder="第四个成员">
+                </div>
+				<div class="form-group">
+                    <label for="teamer_5">队员4姓名</label>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" class="form-control" id="teamer_5" placeholder="第五个成员">
+                </div>
+            </div>
+
+            <p class="text-center" style="color: rgb(230, 84, 0)">若提交按钮无反应<br/>请在手机自带浏览器打开提交</p>
+            <a type="button" id="submit" class="btn btn-default btn-block" style=" background-color: #FFFFFF" onclick="bind()">
+                <span class="glyphicon glyphicon-send" style="color: rgb(0, 168, 255); font-size: 16px;"> 提交</span>
+            </a>
+        </form>
+    </div>
+</div>
+
+
+</body>
+<script>
+    function bind() {
+        var teamName = $('#teamName').val();
+        var teamLeader = $('#teamLeader').val();
+        var teamPhone = $('#teamPhone').val();
+        var teamQQ = $('#teamQQ').val();
+        var teamNum = $('#num').val();
+		var teamer_2 = $('#teamer_2').val();
+		var teamer_3 = $('#teamer_3').val();
+		var teamer_4 = $('#teamer_4').val();
+		var teamer_5 = $('#teamer_5').val();
+
+        var endline = new Date(2019,11-1,21,00,01,00);
+        var nowTime = new Date();
+
+        if(nowTime > endline){
+            alert("报名期限已过，下次记得早点来报名哟");
+        }else if (/*teamName == '' */ teamLeader == '' || teamPhone == '' || teamQQ == '') {
+            alert("请完善个人信息后提交");
+        } else {
+            var output = "队伍名称："+teamName+"\n队长姓名："+teamLeader+"\n联系方式："+teamPhone+"\nQQ："+teamQQ+"\n队伍人数："+teamNum+
+                "\n请确认信息是否正确，确保我们能联系上你哦";
+            var check = confirm(output);
+            if( check == false ){
+                return;
+            }
+            var msg = "teamName="+teamName+"&teamLeader="+teamLeader+"&teamPhone="+teamPhone+"&teamQQ="+teamQQ+"&teamNum="+teamNum+"&teamer_2="+teamer_2+"&teamer_3="+teamer_3+"&teamer_4="+teamer_4+"&teamer_5="+teamer_5;
+            var xmlHttp=new XMLHttpRequest();
+            var newUrl="19yspyEnd.php?"+msg;
+            xmlHttp.open("GET",newUrl,false);
+            xmlHttp.send(null);
+            var result=xmlHttp.responseText;
+            if(result == '1'){
+                alert("报名成功！");
+                location.reload();
+            }else if(result == '0'){
+                alert("报名失败，请检查相关信息后重新提交");
+            }
+        }
+    }
+</script>
+<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/js/modernizr.js"></script>
+<script type="text/javascript" src="assets/js/gaia.js"></script>
+
+</html>
